@@ -1,14 +1,36 @@
 package me.ilfar;
 
+//адресный разомкнутый упорядоченный однонаправленный список без заголовка
 public class Bus {
     private String LicencePlate; //гос.номер автобуса
     private String Driver; //фамилия водителя
-    private List Passengers = new List(); //список пассажиров
 
-    public Bus(String licencePlate, String driver, List passengers) { //конструктор автобуса
+    protected class Item { //класс описываюший объект "элемент списка", тот самый класс-посредник для объекта класса пассажир
+        private Item NextItem; //ссылка на следующий элемент списка
+        private Passenger Info; //информационное поле элемента списка, т.е пассажир
+    }
+
+    //на данном этапе разработки все методы управления списком типа void
+    //это сделлано для удобства
+    // данное допущение будет исправлено на следующем этапе разработки
+
+    public void Push() { //метод добавления элемента в список
+
+    }
+
+    public void Pop() { //метод удаления элемента из списка
+
+    }
+
+    public void Search() { //метод поиска элемента списка
+
+    }
+
+    //конструктор с параметрами и методы доступа к свойствам класса
+
+    public Bus(String licencePlate, String driver) { //конструктор автобуса
         LicencePlate = licencePlate;
         Driver = driver;
-        Passengers = passengers;
     }
 
     public String getLicencePlate() {
@@ -25,13 +47,5 @@ public class Bus {
 
     public void setDriver(String driver) {
         Driver = driver;
-    }
-
-    public List getPassengers() {
-        return Passengers;
-    }
-
-    public void setPassengers(List passengers) {
-        this.Passengers = passengers;
     }
 }
