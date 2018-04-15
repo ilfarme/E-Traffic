@@ -1,5 +1,7 @@
 package me.ilfar;
 
+import com.sun.xml.internal.ws.api.pipe.NextAction;
+
 //адресный разомкнутый упорядоченный однонаправленный список без заголовка
 public class Bus {
     private String LicencePlate; //гос.номер автобуса
@@ -9,6 +11,8 @@ public class Bus {
         private Item NextItem; //ссылка на следующий элемент списка
         private Passenger Info; //информационное поле элемента списка, т.е пассажир
     }
+
+    private Item FirstItem; //ссылка на первый элемент списка
 
     //на данном этапе разработки все методы управления списком типа void
     //это сделлано для удобства
@@ -31,6 +35,7 @@ public class Bus {
     public Bus(String licencePlate, String driver) { //конструктор автобуса
         LicencePlate = licencePlate;
         Driver = driver;
+        FirstItem = null;
     }
 
     public String getLicencePlate() {
