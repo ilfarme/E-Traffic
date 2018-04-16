@@ -6,8 +6,8 @@ package me.ilfar;
 public class Queue {
     private Bus[] ArrayQfItems; //динамический массив ссылок на автобусы (элементов очереди)
     private int MaxSize; //размерность динамического массива
-    private Bus FirstItem; //ссылка на первый элемент очереди
-    private Bus LastItem; //ссылка на последний элемент очереди
+    private int CurrentState; //текущее количество элементов массива (очереди)
+    private Bus NextBus; //ссылка на следующий элемент списка
 
     public boolean Push(Bus pushBus) {
         boolean isSuccess = false;
@@ -18,11 +18,15 @@ public class Queue {
         return isSuccess;
     }
 
-    public boolean Pop(Bus popBus) {
+    public boolean Pop() {
         boolean isSuccess = false;
         /*************
-         * метод удаления принимает в качестве входного параметра ссылку на объект класса автобус
-         * а возвращает логическое значение, добавление успешно или нет
+         * метод удаления НЕ принимает входные параметры,
+         * поскольку сначала нужно найти удаляемый элемент.
+         * поэтому в реализации, внутри этого метода будет вызов метода поиска
+         * по положительному результату поиска автобус будет удалён
+         * в противном случае ситуация будет обработана как особая (элемент не найден)
+         * в качестве возвращаемого параметра - логическое значение, удаление успешно или нет
          **************/
         return isSuccess;
     }
@@ -41,8 +45,6 @@ public class Queue {
     public Queue(int maxSize) {
         MaxSize = maxSize;
         ArrayQfItems = new Bus[maxSize];
-        FirstItem = null;
-        LastItem = null;
     }
 
     public Bus[] getArrayQfItems() {
@@ -58,30 +60,39 @@ public class Queue {
         return this;
     }
 
-    public Bus getFirstItem() {
-        return FirstItem;
+    public int getCurrentState() {
+        return CurrentState;
     }
 
-    public Queue setFirstItem(Bus firstItem) {
-        FirstItem = firstItem;
+    public Queue setCurrentState(int currentState) {
+        CurrentState = currentState;
         return this;
     }
 
-    public Bus getLastItem() {
-        return LastItem;
+    public Bus getNextBus() {
+        return NextBus;
     }
 
-    public Queue setLastItem(Bus lastItem) {
-        LastItem = lastItem;
+    public Queue setNextBus(Bus nextBus) {
+        NextBus = nextBus;
         return this;
     }
 
     //методы управления состоянием программы (сохранение/загрузка из файла)
 
-    public void SaveAll() {
-        //метод сохранения состояния программы на внешнем файле
+    public void SaveAll(String FileName) {
+        /**
+         * метод сохранения состояния программы на внешнем файле
+         * в качестве формального параметра принимает строковое значение
+         * то есть название файла
+         **/
+
     }
-    public void OpenSaved() {
-        //метод открытия сохранённого состояния программы из внешнего файла
+    public void OpenSaved(String FileName) {
+        /**
+         * метод открытия сохранённого состояния программы из внешнего файла
+         * в качестве формального параметра принимает строковое значение
+         * то есть название файла
+         **/
     }
 }
