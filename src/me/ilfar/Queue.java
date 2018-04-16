@@ -4,40 +4,48 @@ package me.ilfar;
 //он же "автотраспортное предприятие (АТП)".
 
 public class Queue {
-    private Item[] ArrayQfItems; //динамический массив элементов очереди
+    private Bus[] ArrayQfItems; //динамический массив ссылок на автобусы (элементов очереди)
     private int MaxSize; //размерность динамического массива
-    private Item FirstItem; //ссылка на первый элемент очереди
-    private Item LastItem; //ссылка на последний элемент очереди
-    protected class Item { //класс описывающий объект "элемент очереди"
-        private Item NextItem; //ссылка на следующий элемент
-        private Bus Info; //информационное поле элемента, т.е автобус (с пассажирами)
+    private Bus FirstItem; //ссылка на первый элемент очереди
+    private Bus LastItem; //ссылка на последний элемент очереди
+
+    public boolean Push(Bus pushBus) {
+        boolean isSuccess = false;
+        /*************
+        * метод добавления принимает в качестве входного параметра ссылку на объект класса автобус
+        * а возвращает логическое значение, добавление успешно или нет
+        **************/
+        return isSuccess;
     }
 
-    //на данном этапе разработки для удобства все методы void
-    //данное допущение будет исправлено на следующем этапе разработки
-
-    public void Push() { //метод добавления
-
+    public boolean Pop(Bus popBus) {
+        boolean isSuccess = false;
+        /*************
+         * метод удаления принимает в качестве входного параметра ссылку на объект класса автобус
+         * а возвращает логическое значение, добавление успешно или нет
+         **************/
+        return isSuccess;
     }
 
-    public void Pop() { //метод удаления
-
-    }
-
-    public void Search() { //метод поиска
-
+    public Bus Search(String Driver) { //метод поиска
+        Bus foundedBus = null;
+        /*************
+         * метод поиска принимает в качестве входного параметра строку c фамилией водителя
+         * а возвращает автобус, на котором он поедет в рейс
+         **************/
+        return foundedBus;
     }
 
     //конструктор и методы доступа
 
     public Queue(int maxSize) {
         MaxSize = maxSize;
-        ArrayQfItems = new Item[maxSize];
+        ArrayQfItems = new Bus[maxSize];
         FirstItem = null;
         LastItem = null;
     }
 
-    public Item[] getArrayQfItems() {
+    public Bus[] getArrayQfItems() {
         return ArrayQfItems;
     }
 
@@ -50,21 +58,30 @@ public class Queue {
         return this;
     }
 
-    public Item getFirstItem() {
+    public Bus getFirstItem() {
         return FirstItem;
     }
 
-    public Queue setFirstItem(Item firstItem) {
+    public Queue setFirstItem(Bus firstItem) {
         FirstItem = firstItem;
         return this;
     }
 
-    public Item getLastItem() {
+    public Bus getLastItem() {
         return LastItem;
     }
 
-    public Queue setLastItem(Item lastItem) {
+    public Queue setLastItem(Bus lastItem) {
         LastItem = lastItem;
         return this;
+    }
+
+    //методы управления состоянием программы (сохранение/загрузка из файла)
+
+    public void SaveAll() {
+        //метод сохранения состояния программы на внешнем файле
+    }
+    public void OpenSaved() {
+        //метод открытия сохранённого состояния программы из внешнего файла
     }
 }
