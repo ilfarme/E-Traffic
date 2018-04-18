@@ -7,7 +7,6 @@ public class Queue {
     private Bus[] ArrayQfItems; //динамический массив ссылок на автобусы (элементов очереди)
     private int MaxSize; //размерность динамического массива
     private int CurrentState; //текущее количество элементов массива (очереди)
-    private Bus NextBus; //ссылка на следующий элемент списка
 
     public boolean Push(Bus pushBus) {
         boolean isSuccess = false;
@@ -18,7 +17,7 @@ public class Queue {
         return isSuccess;
     }
 
-    public boolean Pop(int itemIndex) {
+    public boolean Pop() {
         boolean isSuccess = false;
          // метод возвращает логическое значение, удаление успешно или нет
         return isSuccess;
@@ -59,15 +58,6 @@ public class Queue {
 
     public Queue setCurrentState(int currentState) {
         CurrentState = currentState;
-        return this;
-    }
-
-    public Bus getNextBus() {
-        return NextBus;
-    }
-
-    public Queue setNextBus(Bus nextBus) {
-        NextBus = nextBus;
         return this;
     }
 
