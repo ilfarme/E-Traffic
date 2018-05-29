@@ -12,9 +12,12 @@ public class Bus {
 
     private Item FirstItem; //ссылка на первый элемент списка
 
-    public boolean Push(Passenger pushItem) {
+    public boolean Push(Item pushItem) {
         boolean isSuccess = false;
-
+        /*************
+         * метод добавления принимает в качестве входного параметра ссылку на объект класса элемент списка(пассажир)
+         * а возвращает логическое значение, добавление успешно или нет
+         **************/
         return isSuccess;
     }
 
